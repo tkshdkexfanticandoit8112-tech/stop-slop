@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <script src="assets/gsap.min.js"></script>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        margin: 0;
+        width: 1920px;
+        height: 1080px;
+        overflow: hidden;
+        background: #0c0c0d;
+      }
+      #root {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+        color: #f4f4f5;
+      }
+      .clip {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 0 200px;
+      }
+
+      /* Title and outro */
+      .center {
+        align-items: center;
+        text-align: center;
+      }
+      .wordmark {
+        font-family: Inter, sans-serif;
+        font-size: 200px;
+        font-weight: 800;
+        letter-spacing: -0.05em;
+        line-height: 1;
+      }
+      .wordmark .slop {
+        position: relative;
+        color: #ef4444;
+      }
+      .bar {
+        position: absolute;
+        left: -2%;
+        top: 54%;
+        width: 104%;
+        height: 18px;
+        background: #f4f4f5;
+        transform-origin: left center;
+      }
+      .tagline {
+        margin-top: 48px;
+        font-size: 52px;
+        font-weight: 500;
+        color: #a1a1aa;
+      }
+
+      /* Example scenes */
+      .label {
+        font-size: 30px;
+        font-weight: 700;
+        letter-spacing: 0.18em;
+        margin-bottom: 28px;
+      }
+      .label.before {
+        color: #ef4444;
+      }
+      .label.after {
+        color: #4ade80;
+      }
+      .kicker {
+        position: absolute;
+        top: 110px;
+        left: 200px;
+        font-size: 32px;
+        font-weight: 600;
+        color: #71717a;
+      }
+      .before-text {
+        font-size: 58px;
+        font-weight: 500;
+        line-height: 1.35;
+        color: #e4e4e7;
+      }
+      .s {
+        background-image: linear-gradient(#ef4444, #ef4444);
+        background-repeat: no-repeat;
+        background-position: 0 56%;
+        background-size: 0% 6px;
+      }
+      .after-card {
+        margin-top: 72px;
+        padding: 44px 56px;
+        border-left: 8px solid #4ade80;
+        background: #18181b;
+        border-radius: 12px;
+      }
+      .after-text {
+        font-size: 68px;
+        font-weight: 700;
+        line-height: 1.25;
+        letter-spacing: -0.02em;
+      }
+
+      .rules {
+        margin-top: 56px;
+        font-size: 40px;
+        line-height: 1.6;
+        color: #a1a1aa;
+      }
+      .rules b {
+        color: #f4f4f5;
+        font-weight: 600;
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      id="root"
+      data-composition-id="main"
+      data-start="0"
+      data-duration="22"
+      data-width="1920"
+      data-height="1080"
+    >
+      <!-- 0 to 3.5s: title -->
+      <section id="title" class="clip center" data-start="0" data-duration="3.5" data-track-index="0">
+        <div class="wordmark">Stop <span class="slop">Slop<span class="bar" id="title-bar"></span></span></div>
+        <div class="tagline" id="title-tag">A skill for removing AI tells from prose.</div>
+      </section>
+
+      <!-- 3.5 to 8.5s: example 1 -->
+      <section id="ex1" class="clip" data-start="3.5" data-duration="5" data-track-index="0">
+        <div class="kicker">Throat-clearing + binary contrast</div>
+        <div class="label before">BEFORE</div>
+        <p class="before-text">
+          <span class="s">Here's the thing:</span> building products is hard.
+          <span class="s">Not because the technology is complex. Because people are complex.</span>
+          <span class="s">Let that sink in.</span>
+        </p>
+        <div class="after-card">
+          <div class="label after">AFTER</div>
+          <p class="after-text">Building products is hard. Technology is manageable. People aren't.</p>
+        </div>
+      </section>
+
+      <!-- 8.5 to 13.5s: example 2 -->
+      <section id="ex2" class="clip" data-start="8.5" data-duration="5" data-track-index="0">
+        <div class="kicker">Business jargon stack</div>
+        <div class="label before">BEFORE</div>
+        <p class="before-text">
+          <span class="s">In today's fast-paced landscape,</span> we need to
+          <span class="s">lean into discomfort</span> and
+          <span class="s">navigate uncertainty with clarity.</span>
+          <span class="s">This matters because</span> your competition isn't waiting.
+        </p>
+        <div class="after-card">
+          <div class="label after">AFTER</div>
+          <p class="after-text">Move faster. Your competition is.</p>
+        </div>
+      </section>
+
+      <!-- 13.5 to 18.5s: example 3 -->
+      <section id="ex3" class="clip" data-start="13.5" data-duration="5" data-track-index="0">
+        <div class="kicker">Rhetorical setup</div>
+        <div class="label before">BEFORE</div>
+        <p class="before-text">
+          <span class="s">What if I told you that</span> the best teams don't optimize for productivity?
+          <span class="s">Here's what I mean:</span> they optimize for learning.
+          <span class="s">Think about it.</span>
+        </p>
+        <div class="after-card">
+          <div class="label after">AFTER</div>
+          <p class="after-text">The best teams optimize for learning, not productivity.</p>
+        </div>
+      </section>
+
+      <!-- 18.5 to 22s: outro -->
+      <section id="outro" class="clip center" data-start="18.5" data-duration="3.5" data-track-index="0">
+        <div class="wordmark" style="font-size: 150px">Stop Slop</div>
+        <p class="rules" id="outro-rules">
+          <b>SKILL.md</b> for the rules. <b>references/</b> for phrases, structures and examples.<br />
+          Works with Claude Code, Claude Projects or any LLM system prompt.
+        </p>
+      </section>
+    </div>
+    <script>
+      window.__timelines = window.__timelines || {};
+      const tl = gsap.timeline({ paused: true });
+
+      // Title
+      tl.fromTo("#title .wordmark", { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.6, ease: "power3.out" }, 0.1);
+      tl.fromTo("#title-bar", { scaleX: 0 }, { scaleX: 1, duration: 0.45, ease: "power2.inOut" }, 0.9);
+      tl.fromTo("#title-tag", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.5, ease: "power2.out" }, 1.4);
+      tl.to("#title", { opacity: 0, duration: 0.3 }, 3.2);
+
+      // Example scenes share one beat pattern
+      [["#ex1", 3.5], ["#ex2", 8.5], ["#ex3", 13.5]].forEach(([id, t]) => {
+        tl.fromTo(`${id} .kicker, ${id} .label.before`, { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.4, stagger: 0.08 }, t + 0.05);
+        tl.fromTo(`${id} .before-text`, { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.5, ease: "power2.out" }, t + 0.2);
+        tl.fromTo(`${id} .s`, { backgroundSize: "0% 6px" }, { backgroundSize: "100% 6px", duration: 0.35, stagger: 0.18, ease: "power2.inOut" }, t + 1.4);
+        tl.to(`${id} .s`, { opacity: 0.35, duration: 0.3, stagger: 0.18 }, t + 1.6);
+        tl.fromTo(`${id} .after-card`, { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.5, ease: "power3.out" }, t + 2.4);
+        tl.to(id, { opacity: 0, duration: 0.3 }, t + 4.7);
+      });
+
+      // Outro
+      tl.fromTo("#outro .wordmark", { opacity: 0, scale: 0.94 }, { opacity: 1, scale: 1, duration: 0.5, ease: "power3.out" }, 18.6);
+      tl.fromTo("#outro-rules", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.5 }, 19.1);
+
+      window.__timelines["main"] = tl;
+      tl.seek(0);
+    </script>
+  </body>
+</html>
